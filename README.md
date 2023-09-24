@@ -6,4 +6,4 @@ triangle classification program, tested and fixed a legacy triangle classificati
 
 
 
-[![burkeperrotta](https://circleci.com/gh/burkeperrotta/<SSW-567>.svg?style=svg)](https://app.circleci.com/pipelines/github/burkeperrotta/<SSW-567>?branch=main&filter=all)
+[![burkeperrotta](https://circleci.com/gh/burkeperrotta/SSW-567.svg?style=svg)](https://app.circleci.com/pipelines/github/burkeperrotta/SSW-567?branch=main&filter=all)
