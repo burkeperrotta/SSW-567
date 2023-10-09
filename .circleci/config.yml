@@ -32,4 +32,4 @@ workflows:
   testing_triangles:
     jobs:
       - build-and-test
-        - build-and-test-api
+      - build-and-test-api
