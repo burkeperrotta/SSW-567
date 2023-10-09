@@ -27,7 +27,7 @@ orbs:
   python: circleci/python@2.0.1
 
 jobs:
-  build-and-test:
+  build-and-test-api:
     docker:
       - image: cimg/python:3.10.2
     steps:
@@ -40,6 +40,6 @@ jobs:
           path: api-test-results
 
 workflows:
-  testing_triangles:
+  testing_api:
     jobs:
       - build-and-test-api
