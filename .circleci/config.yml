@@ -32,6 +32,6 @@ workflows:
   testing_triangles:
     jobs:
       - build-and-test
-  testing_triangles:
+  testing_api:
     jobs:
       - build-and-test-api
