@@ -15,7 +15,7 @@ jobs:
             pytest --junitxml=test-results/junit.xml TestTriangle.py
       - store_test_results:
           path: test-results
-    build-and-test-api:
+  build-and-test-api:
     docker:
       - image: cimg/python:3.10.2
     steps:
