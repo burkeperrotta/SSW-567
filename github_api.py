@@ -1,3 +1,7 @@
+import sys
+
+# Add the path to the requests library
+sys.path.append('/path/to/requests')
 import requests
 
 def get_user_repositories_and_commits(username):
