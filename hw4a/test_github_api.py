@@ -21,6 +21,10 @@ class TestGitHubAPI(unittest.TestCase):
         self.assertEqual(repo_commits[6], ('threads-of-life', 1))
         self.assertEqual(repo_commits[7], ('try_nbdev', 2))
         self.assertEqual(repo_commits[8], ('try_nbdev2', 5))
+        #test an invalid username
+        invalName = "njkcdosnjfionreuiwofnusdiovnf7"
+        invalNameTest = get_user_repositories_and_commits(invalName)
+        self.assertEqual(invalNameTest, (None))
 
 
 if __name__ == '__main__':
