@@ -1,5 +1,5 @@
 import unittest
-from hw4a.github_api import get_user_repositories_and_commits
+from github_api import get_user_repositories_and_commits
 
 class TestGitHubAPI(unittest.TestCase):
 
