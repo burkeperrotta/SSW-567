@@ -1,34 +1,36 @@
 import requests
-import json
 
 def get_user_repositories_and_commits(username):
     try:
         # Get the user's repositories
-        url = f'https://api.github.com/users/{username}/repos'
-        rResponse = requests.get(url)
-        # Raise an exception if the request was unsuccessful
-        rResponse.raise_for_status()
-        repos = rResponse.json()
+        repo_url = f'https://api.github.com/users/{username}/repos'
+        print(repo_url)
+        response = requests.get(repo_url)
+        response.raise_for_status()  # Raise an exception if the request was unsuccessful
+        repos = response.json()
 
-        # make a list to store the repo and commit couples
-        result = []
+        repo_commits = []  # Initialize a list to store repo and commit count pairs
 
-        # loop to iterate through all of the inputted user's repositories
+        # Iterate through the user's repositories
         for repo in repos:
-            name = repo['name']
+            repo_name = repo['name']
 
-            # use the same process to get all the commits for the relected repository
-            commit_url = f'https://api.github.com/repos/{username}/{name}/commits'
-            cResponse = requests.get(commit_url)
-            # Raise an exception if the request was unsuccessful
-            cResponse.raise_for_status()
-            commits = cResponse.json()
-            commit_num = len(commits)
+            # Get the commits for each repository
+            commit_url = f'https://api.github.com/repos/{username}/{repo_name}/commits'
+            commit_response = requests.get(commit_url)
+            commit_response.raise_for_status()  # Raise an exception if the request was unsuccessful
+            commits = commit_response.json()
+            commit_count = len(commits)
 
-            result.append((name, commit_num))
+            repo_commits.append((repo_name, commit_count))
 
-        return result
-
+        # Print the result
+        for repo, commit_count in repo_commits:
+            print(f"The repo {repo} has {commit_count} commits.")
+        return repo_commits
     except requests.exceptions.RequestException as e:
         print(f"Error fetching data from GitHub API: {e}")
         return None
+
+# uName = input("Enter the username of a github you want to see info for: ")
+# get_user_repositories_and_commits(uName)
